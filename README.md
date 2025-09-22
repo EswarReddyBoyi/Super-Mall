@@ -140,3 +140,66 @@ Real-time notifications
 Admin approval dashboard for admin_request
 
 ### Preview
+
+<table>
+  <tr>
+    <th> Index Page</th>
+    <th> Index 2 Page</th>
+    <th> Admin Register Page</th>
+  </tr>
+  <tr>
+    <td><img src="assets/imagee1.png" width="370"/> </td>
+    <td><img src="assets/imagee2.png" width="370"/> </td>
+    <td><img src="assets/imagee3.png" width="370"/> </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th> Admin Login Page</th>
+    <th> User Register Page</th>
+    <th> User Login Page</th>
+  </tr>
+  <tr>
+    <td><img src="assets/imagee4.png" width="370"/> </td>
+    <td><img src="assets/imagee5.png" width="370"/> </td>
+    <td><img src="assets/imagee6.png" width="370"/> </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th> Create Shop Page</th>
+    <th> Manage Shop Page</th>
+    <th> Manage Offers Page</th>
+  </tr>
+  <tr>
+    <td><img src="assets/imagee7.png" width="370"/> </td>
+    <td><img src="assets/imagee8.png" width="370"/> </td>
+    <td><img src="assets/imagee9.png" width="370"/> </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th> Logs Page</th>
+    <th> Filter Shops Page</th>
+    <th> Shops Page</th>
+  </tr>
+  <tr>
+    <td><img src="assets/imagee10.png" width="370"/> </td>
+    <td><img src="assets/imagee11.png" width="370"/> </td>
+    <td><img src="assets/imagee12.png" width="370"/> </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th> Offers Page</th>
+    <th> Compare Products Page</th>
+  </tr>
+  <tr>
+    <td><img src="assets/imagee13.png" width="370"/> </td>
+    <td><img src="assets/imagee14.png" width="370"/> </td>
+  </tr>
+</table>
