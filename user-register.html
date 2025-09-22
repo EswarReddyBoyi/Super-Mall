@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Register - SuperMall</title>
+<script type="module" src="./js/auth.js"></script>
+<script type="module" src="./js/db.js"></script>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .register-container {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+    width: 420px;
+    text-align: center;
+    animation: fadeIn 0.8s ease forwards;
+  }
+
+  .register-container h1 {
+    font-size: 34px;
+    margin-bottom: 30px;
+    color: #1a1860;
+  }
+
+  .register-container input {
+    width: 100%;
+    padding: 14px;
+    margin: 12px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .register-container input:focus {
+    border-color: #1a1860;
+    box-shadow: 0 0 6px rgba(26,24,96,0.4);
+  }
+
+  .register-container button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #1a1860;
+    color: white;
+    font-weight: 500;
+    transition: background 0.3s ease;
+  }
+
+  .register-container button:hover {
+    background-color: #3430a0;
+  }
+
+  #status {
+    margin-top: 15px;
+    font-size: 16px;
+    color: red;
+    min-height: 22px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+  <div class="register-container">
+    <h1>User Registration</h1>
+    <form id="userRegisterForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Register</button>
+    </form>
+    <p id="status"></p>
+  </div>
+
+<script type="module">
+import { registerWithEmail } from './js/auth.js';
+import { createProfile } from './js/db.js';
+
+const form = document.getElementById('userRegisterForm');
+const status = document.getElementById('status');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = form.email.value.trim();
+  const password = form.password.value.trim();
+
+  if (!email || !password) {
+    status.textContent = "Please fill in all fields.";
+    return;
+  }
+
+  try {
+    const cred = await registerWithEmail(email, password);
+    await createProfile(cred.user.uid, email, "user");
+    status.style.color = "green";
+    status.textContent = "User registered successfully. You can login now.";
+    form.reset();
+  } catch (err) {
+    console.error(err);
+    status.textContent = err.message;
+  }
+});
+</script>
+</body>
+</html>

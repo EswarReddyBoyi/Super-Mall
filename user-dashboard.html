@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Dashboard - SuperMall</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-brand">
+    <img src="assets/logoo.png" alt="SuperMall Logo" class="logo">
+  </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" data-target="filterSection">Filter Shops</button>
+      <button class="nav-btn" data-target="shopsSection">Shops</button>
+      <button class="nav-btn" data-target="offersSection">Offers</button>
+      <button class="nav-btn" data-target="compareSection">Compare Products</button>
+      <button id="btnLogout" class="logout-btn">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Filter Shops -->
+  <section id="filterSection" class="content-section">
+    <h2>Filter Shops</h2>
+    <select id="categoryFilter"><option value="">All Categories</option></select>
+    <select id="floorFilter"><option value="">All Floors</option></select>
+    <button id="applyFilter">Apply Filter</button>
+  </section>
+
+  <!-- Shops -->
+  <section id="shopsSection" class="content-section">
+    <h2>Shops</h2>
+    <div id="shopsList"></div>
+  </section>
+
+  <!-- Offers -->
+  <section id="offersSection" class="content-section">
+    <h2>Offers</h2>
+    <div id="offersList"></div>
+  </section>
+
+  <!-- Compare Products -->
+<!-- Compare Products -->
+<section id="compareSection" class="content-section">
+  <h2>Compare Products</h2>
+  <div class="compare-filters">
+    <select id="compareCategory"><option value="">All Categories</option></select>
+    <select id="compareFloor"><option value="">All Floors</option></select>
+    <button id="compareBtn">Compare</button>
+  </div>
+  <table id="compareTable">
+    <thead>
+      <tr>
+        <th>Shop</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Features</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+
+  <script type="module" src="./js/user-dashboard.js"></script>
+</body>
+</html>

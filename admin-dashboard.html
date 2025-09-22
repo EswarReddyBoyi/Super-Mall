@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard - SuperMall</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard - SuperMall</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="assets/logoo.png" alt="SuperMall Logo" class="logo">
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" data-target="createShopSection">Create Shop</button>
+      <button class="nav-btn" data-target="manageShopsSection">Manage Shops</button>
+      <button class="nav-btn" data-target="manageOffersSection">Manage Offers</button>
+      <button class="nav-btn" data-target="logsSection">Logs</button>
+      <button class="logout-btn" id="btnLogout">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Content Sections -->
+  <main>
+    <section id="createShopSection" class="content-section">
+      <h2>Create Shop</h2>
+      <form id="createShopForm">
+  <input type="text" id="shopName" placeholder="Shop Name" required>
+  <input type="text" id="shopCategory" placeholder="Category" required>
+  <input type="text" id="shopFloor" placeholder="Floor" required>
+  <textarea id="shopDesc" placeholder="Description"></textarea>
+  <button type="submit">Create Shop</button>
+</form>
+    </section>
+
+    <section id="manageShopsSection" class="content-section">
+      <h2>Manage Shops</h2>
+      <div id="shopsList"></div>
+    </section>
+
+    <section id="manageOffersSection" class="content-section">
+      <h2>Manage Offers</h2>
+      <form id="createOfferForm">
+  <select id="shopSelect" required></select>
+  <input type="text" id="offerTitle" placeholder="Offer Title" required>
+  <input type="text" id="productName" placeholder="Product Name" required>
+  <input type="number" id="productPrice" placeholder="Price" required>
+  <input type="text" id="productFeatures" placeholder="Features">
+  <button type="submit">Create Offer</button>
+</form>
+      <div id="offersList"></div>
+    </section>
+
+    <section id="logsSection" class="content-section">
+      <h2>Recent Logs</h2>
+      <div id="logsList"></div>
+    </section>
+  </main>
+  
+  <script type="module" src="./js/admin-dashboard.js"></script>
+</body>
+
+</html>
+
+</html>

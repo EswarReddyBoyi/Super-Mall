@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SuperMall</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ---------------- Animation Screen ---------------- */
+    .animation-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #1a1860;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .animation-image {
+      width: 350px;
+      height: 350px;
+      background: url("assets/logo.png") no-repeat center/contain;
+      animation: scaleUp 1.2s ease forwards;
+    }
+
+    @keyframes scaleUp {
+      0%   { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1.4); opacity: 1; }
+    }
+
+    /* Shatter pieces */
+    .shard {
+      position: absolute;
+      width: 70px; height: 70px;
+      background: url("assets/logo.png") no-repeat;
+      background-size: 350px 350px;
+      opacity: 1;
+      animation: explode 1.5s forwards;
+    }
+
+    @keyframes explode {
+      0%   { transform: translate(0,0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--x), var(--y)) rotate(45deg) scale(0.8); opacity: 0; }
+    }
+
+    .animation-screen.hidden {
+      display: none;
+    }
+
+    /* ---------------- Main Content ---------------- */
+    .main-content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .main-content.show {
+      display: flex;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #1a1860;
+    }
+
+    .box-container {
+      display: flex;
+      gap: 80px;
+    }
+
+    .square-box {
+      background: #fff;
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+      width: 380px;
+      height: 300px;
+      text-align: center;
+    }
+
+    .square-box h2 {
+      margin-bottom: 30px;
+      font-size: 30px;
+      color: #1a1860;
+    }
+
+    .square-box button {
+      display: block;
+      width: 100%;
+      margin: 15px 0;
+      padding: 16px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #1a1860;
+      color: white;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+
+    .square-box button:hover {
+      background-color: #3430a0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Animation Screen -->
+  <div class="animation-screen" id="animationScreen">
+    <div class="animation-image" id="animImage"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content" id="mainContent">
+    <h1>Welcome to SuperMall</h1>
+    <div class="box-container">
+      <!-- Admin Box -->
+      <div class="square-box">
+        <h2>Admin</h2>
+        <button onclick="location.href='admin-register.html'">Admin Register</button>
+        <button onclick="location.href='admin-login.html'">Admin Login</button>
+      </div>
+
+      <!-- User Box -->
+      <div class="square-box">
+        <h2>User</h2>
+        <button onclick="location.href='user-register.html'">User Register</button>
+        <button onclick="location.href='user-login.html'">User Login</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function shatterImage() {
+      const animScreen = document.getElementById("animationScreen");
+      const animImage = document.getElementById("animImage");
+      animImage.style.display = "none";
+
+      const size = 70; // each shard size
+      const rows = 5, cols = 5;
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const shard = document.createElement("div");
+          shard.className = "shard";
+          shard.style.width = size + "px";
+          shard.style.height = size + "px";
+          shard.style.left = (animScreen.clientWidth/2 - 175 + c*size) + "px";
+          shard.style.top = (animScreen.clientHeight/2 - 175 + r*size) + "px";
+          shard.style.backgroundPosition = `-${c*size}px -${r*size}px`;
+
+          // Random scatter direction and speed
+          const x = (Math.random() - 0.5) * 700 + "px";
+          const y = (Math.random() - 0.5) * 700 + "px";
+          const duration = (1 + Math.random()) + "s"; // random speed 1–2s
+          shard.style.setProperty("--x", x);
+          shard.style.setProperty("--y", y);
+          shard.style.animationDuration = duration;
+
+          animScreen.appendChild(shard);
+        }
+      }
+    }
+
+    window.addEventListener("load", () => {
+      // Step 1: wait for scale-up
+      setTimeout(() => {
+        shatterImage();
+      }, 1300);
+
+      // Step 2: after shatter, show main content
+      setTimeout(() => {
+        document.getElementById("animationScreen").classList.add("hidden");
+        document.getElementById("mainContent").classList.add("show");
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

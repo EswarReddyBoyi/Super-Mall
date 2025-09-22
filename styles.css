@@ -1,0 +1,435 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f9;
+}
+
+/* Navbar container */
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo left, buttons right */
+  background-color: #1a1860;
+  padding: 20px 30px; /* taller navbar */
+  color: white;
+  min-height: 80px;
+}
+
+/* Logo */
+.nav-brand .logo {
+  height: 80px; /* taller logo */
+}
+
+/* Buttons container on right */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* spacing between buttons */
+}
+
+/* Navbar buttons */
+.nav-btn, .logout-btn {
+  background-color: #1a1860;
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.nav-btn:hover, .logout-btn:hover {
+  background-color: #1a1860;
+}
+
+
+.content-section {
+  display: none; /* keep hidden by default */
+  padding: 20px;
+}
+
+.content-section.active {
+  display: block; /* show only active section */
+}
+
+/* Only inner filter layout */
+/* Filter section select boxes and button */
+#filterSection select,
+#compareSection select,
+#filterSection button,
+#compareSection button {
+  font-size: 18px;          /* bigger text */
+  padding: 12px 18px;       /* larger clickable area */
+  border-radius: 6px;
+  border: none;
+  background-color: #1a1860; /* match navbar color */
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 10px;       /* spacing between elements */
+  min-width: 180px;         /* nice width for dropdowns */
+}
+
+/* Hover effect */
+#filterSection select:hover,
+#compareSection select:hover,
+#filterSection button:hover,
+#compareSection button:hover {
+  background-color: #3430a0; /* slightly lighter on hover */
+}
+
+/* Flex container for filter section */
+#filterSection,
+#compareSection .compare-filters {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+
+.shop-card, .offer-card {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+#compareTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+#compareTable th, #compareTable td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+#compareTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#compareTable tr[style*="background-color"] {
+  background-color: #d4edda !important;
+  font-weight: bold;
+}
+
+/* -------------------- Forms & Inputs -------------------- */
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+form input, form select {
+  font-size: 16px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: calc(100% - 26px); /* full width minus padding */
+  box-sizing: border-box;
+}
+
+form button {
+  font-size: 16px;
+  padding: 12px 18px;
+  border-radius: 6px;
+  border: none;
+  background-color: #1a1860;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #3430a0;
+}
+
+/* -------------------- Filter Sections -------------------- */
+#filterSection,
+#compareSection .compare-filters {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+#filterSection select,
+#compareSection select,
+#filterSection button,
+#compareSection button {
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  background-color: #1a1860;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  min-width: 150px;
+  transition: background 0.3s;
+}
+
+#filterSection select:hover,
+#compareSection select:hover,
+#filterSection button:hover,
+#compareSection button:hover {
+  background-color: #3430a0;
+}
+
+/* -------------------- Shop & Offer Cards -------------------- */
+.shop-card, .offer-card {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  font-size: 16px;
+}
+
+.shop-card strong, .offer-card strong {
+  font-size: 17px;
+}
+
+.shop-card p, .offer-card p {
+  font-size: 15px;
+  margin: 5px 0 0 0;
+  color: #555;
+}
+
+/* Buttons inside cards */
+.shop-card button, .offer-card button {
+  padding: 6px 12px;
+  margin-right: 8px;
+  margin-top: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #1a1860;
+  color: white;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.shop-card button:hover, .offer-card button:hover {
+  background-color: #3430a0;
+}
+
+/* -------------------- Comparison Table -------------------- */
+#compareTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+#compareTable th, #compareTable td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+  font-size: 15px;
+}
+
+#compareTable th {
+  background-color: #1a1860;
+  color: white;
+}
+
+#compareTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#compareTable tr[style*="background-color"] {
+  background-color: #d4edda !important;
+  font-weight: bold;
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-buttons {
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  #filterSection,
+  #compareSection .compare-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  form input, form select {
+    width: 100%;
+  }
+}
+
+/* -------------------- Card Buttons (Edit, Delete, Save, Cancel) -------------------- */
+.shop-card button,
+.offer-card button,
+.shop-info button,
+.offer-info button {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 8px;
+  margin-top: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Edit buttons */
+.editShopBtn,
+.editOfferBtn {
+  background-color: #1a1860;
+  color: white;
+}
+
+.editShopBtn:hover,
+.editOfferBtn:hover {
+  background-color: #3430a0;
+}
+
+/* Delete buttons */
+.deleteShopBtn,
+.deleteOfferBtn {
+  background-color: #c0392b;
+  color: white;
+}
+
+.deleteShopBtn:hover,
+.deleteOfferBtn:hover {
+  background-color: #e74c3c;
+}
+
+/* Save buttons */
+.saveShopBtn,
+.saveOfferBtn {
+  background-color: #27ae60;
+  color: white;
+}
+
+.saveShopBtn:hover,
+.saveOfferBtn:hover {
+  background-color: #2ecc71;
+}
+
+/* Cancel buttons */
+.cancelShopBtn,
+.cancelOfferBtn {
+  background-color: #7f8c8d;
+  color: white;
+}
+
+.cancelShopBtn:hover,
+.cancelOfferBtn:hover {
+  background-color: #95a5a6;
+}
+
+/* -------------------- Inline Edit Inputs -------------------- */
+.shop-info input,
+.offer-info input,
+.shop-info select,
+.offer-info select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 8px;
+  margin-top: 8px;
+  min-width: 120px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* -------------------- Logs -------------------- */
+#logsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.log-entry {
+  background-color: #fff;
+  padding: 12px 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  font-size: 14px;
+  color: #333;
+  word-break: break-word;
+}
+
+/* -------------------- Shop/Offer Card Text -------------------- */
+.shop-card strong,
+.offer-card strong,
+.shop-info,
+.offer-info {
+  font-size: 18px;        /* bigger text */
+  line-height: 1.8;       /* more vertical spacing */
+  color: #1a1860;
+  font-weight: 500;
+}
+
+/* -------------------- Inline Edit Inputs -------------------- */
+.shop-info input,
+.offer-info input,
+.shop-info select,
+.offer-info select {
+  padding: 14px 18px;     /* bigger input boxes */
+  font-size: 18px;        /* larger font */
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  margin-right: 12px;
+  margin-top: 12px;
+  min-width: 200px;       /* wider fields */
+  box-sizing: border-box;
+}
+
+/* -------------------- Buttons in Cards -------------------- */
+.shop-info button,
+.offer-info button {
+  padding: 14px 22px;     /* bigger clickable area */
+  font-size: 18px;        /* large readable text */
+  border-radius: 6px;
+  margin-right: 12px;
+  margin-top: 12px;
+  font-weight: 600;
+  background-color: #1a1860;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.shop-info button:hover,
+.offer-info button:hover {
+  background-color: #3430a0;
+}
+
+/* -------------------- Shop/Offer Cards -------------------- */
+.shop-card,
+.offer-card {
+  padding: 24px;          /* more spacious inside */
+  line-height: 1.8;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
