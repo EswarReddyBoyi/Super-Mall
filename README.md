@@ -46,7 +46,7 @@ Live link: https://supermall-webapp.netlify.app/
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/22BCE8093-Eswar/Super-Mall
+git clone https://github.com/EswarReddyBoyi/Super-Mall
 cd Super-Mall
 ````
 
